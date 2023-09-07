@@ -17,6 +17,12 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/components-user/PriceChart/useMarketData.js",
+    "components/components-user/PriceChart/OHLCTooltip.js"
+  ],
   "exclude": ["node_modules"]
 }

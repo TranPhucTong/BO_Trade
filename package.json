@@ -9,17 +9,40 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mantine/core": "^6.0.19",
+    "@react-icons/all-files": "^4.1.0",
+    "@syncfusion/ej2-react-charts": "^22.2.11",
+    "@tabler/icons-react": "^2.32.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/node": "20.5.9",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
+    "d3-dsv": "^3.0.1",
+    "d3-time-format": "^4.1.0",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "next": "13.4.19",
+    "next-images": "^1.8.5",
+    "next-themes": "^0.2.1",
     "postcss": "8.4.29",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-feather": "^2.0.10",
+    "react-financial-charts": "^2.0.1",
+    "react-icons": "^4.10.1",
+    "react-id-swiper": "^4.0.0",
+    "react-select": "^5.7.4",
+    "swiper": "^10.2.0",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "@types/d3-dsv": "^3.0.2",
+    "@types/d3-format": "^3.0.1",
+    "@types/d3-time-format": "^4.0.0"
   }
 }
