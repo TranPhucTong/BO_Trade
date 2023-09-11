@@ -13,7 +13,7 @@ const Line = () => {
     <>
       <Image
         src={line}
-        className="w-full md:block hidden md:py-16"
+        className="w-full md:block hidden md:py-[40px]"
         alt="LinePC"
       />
       <Image

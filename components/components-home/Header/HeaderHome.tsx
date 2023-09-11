@@ -6,7 +6,7 @@ import ThemeSwitcher from "@/pages/ThemeSwitcher";
 
 const HeaderHome = () => {
   return (
-    <header className="header dark:bg-bgHeader dark:shadow-md bg-white flex w-full justify-between items-center px-6 py-6 md:py-[40px] md:px-[50px]">
+    <header className="header dark:bg-bgHeader shadow-2xl bg-white flex w-full justify-between items-center px-6 py-6 md:py-[16px] md:px-[100px]">
       <div className="header-left hidden md:flex gap-6 justify-center items-center">
         <ThemeSwitcher />
         <select className="h-[24px] w-[88px] bg-transparent text-black dark:text-white">

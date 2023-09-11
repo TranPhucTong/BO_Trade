@@ -40,41 +40,41 @@ const Steps = () => {
   const { theme } = useTheme();
   const quotation = theme === "dark" ? quotationDark : quotationLight;
   return (
-    <div className="w-full flex flex-col gap-24 h-auto md:px-[50px] md:py-[60px] px-6 py-10">
+    <div className="w-full flex flex-col gap-20 h-auto md:px-[100px] md:py-[40px] px-6 py-10">
       <div className="text-left">
         <Image
-          className=" object-cover w-[78px] h-auto bg-transparent"
+          className=" object-cover w-[50px] h-auto bg-transparent"
           src={quotation}
           alt="quotation"
         />
-        <h1 className="py-8 text-[40px] leading-[52px] font-bold capitalize">
+        <h1 className="py-8 text-[30px] leading-[42px] font-bold capitalize">
           Start trading <br />
           and earn in 4 steps
         </h1>
-        <div className="border-t-[3px] w-[136px] dark:border-primary border-primaryLight"></div>
+        <div className="border-t-[3px] w-[126px] dark:border-primary border-primaryLight"></div>
       </div>
-      <div className="flex md:flex-row flex-col justify-between items-center gap-6 w-full">
+      <div className="flex md:flex-row flex-col justify-between items-center gap-4 w-full">
         {cardData.map((item, index) => (
           <div
             key={index}
-            className="w-[357px] h-[252px] rounded-[40px] dark:bg-bgColorBox bg-bgColorBoxLight dark:border-b-transparent hover:border-b-[4px] border-primaryLight flex flex-col"
+            className="w-[357px] h-[242px] rounded-[40px] dark:bg-bgColorBox bg-bgColorBoxLight dark:border-b-transparent hover:border-b-[4px] border-primaryLight flex flex-col"
           >
-            <div className="p-6 flex flex-col justify-center items-start text-left gap-7">
+            <div className="p-6 flex flex-col justify-center items-start text-left gap-5">
               <div className="flex gap-2 items-end">
                 <Image
-                  className="w-[50px] h-[50px] object-cover"
+                  className="w-[40px] h-[40px] object-cover"
                   src={item.image}
                   alt="quality"
                 />
-                <p className="font-bold text-[25px] leading-[30px]">
+                <p className="font-bold text-[23px] leading-[26px]">
                   0{index + 1},
                 </p>
               </div>
 
-              <h3 className="font-bold text-[20px] leading-[26px]">
+              <h3 className="font-bold text-[18px] leading-[24px]">
                 {item.title}
               </h3>
-              <p className="font-normal text-xl leading-[20.42px] text-textGray">
+              <p className="font-normal text-lg leading-[18.42px] text-textGray">
                 {item.content}
               </p>
             </div>

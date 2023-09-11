@@ -11,14 +11,14 @@ import Image from "next/image";
 
 const OurCurrencies = () => {
   return (
-    <div className="w-full h-auto md:px-[50px] md:py-[180px] px-6 py-10">
+    <div className="w-full h-auto md:px-[100px] md:py-[90px] px-6 py-10">
       <div className="w-full md:hidden flex flex-col items-start pb-20 text-left">
         <Image
-          className=" object-cover w-[78px] h-auto bg-transparent"
+          className=" object-cover w-[68px] h-auto bg-transparent"
           src={quotation}
           alt="quotation"
         />
-        <h1 className="py-8 text-[40px] leading-[52px] font-bold capitalize">
+        <h1 className="py-8 text-[30px] leading-[42px] font-bold capitalize">
           Our Currencies
         </h1>
         <div className="border-t-[3px] w-[136px] border-primary"></div>
@@ -29,11 +29,11 @@ const OurCurrencies = () => {
       >
         <div className="w-[30%] md:flex hidden flex-col items-end text-left mt-28 mr-28">
           <Image
-            className=" object-cover w-[78px] h-auto bg-transparent"
+            className=" object-cover w-[68px] h-auto bg-transparent"
             src={quotation}
             alt="quotation"
           />
-          <h1 className="py-8 text-[40px] leading-[52px] text-white font-bold capitalize">
+          <h1 className="py-8 text-[30px] leading-[42px] text-white font-bold capitalize">
             Our Currencies
           </h1>
           <div className="border-t-[3px] w-[136px] border-primary"></div>

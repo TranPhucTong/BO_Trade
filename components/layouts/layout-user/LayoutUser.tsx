@@ -11,7 +11,7 @@ const LayoutUser = ({ children }: LayoutAdminProps) => {
   return (
     <div className="flex w-full overflow-hidden">
       <SideBarDrop />
-      <div className="flex-grow md:py-6 md:px-3">
+      <div className="flex-grow md:py-4 md:px-3 md:h-screen h-auto">
         <HeaderUser />
         <div className="w-full">
           <div className="">{children}</div>

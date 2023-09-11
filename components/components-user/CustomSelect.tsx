@@ -33,12 +33,12 @@ const CustomSelect: React.FC = () => {
   return (
     <div className="relative">
       <div
-        className="w-[178px] h-[50px] border uppercase font-bold text-base leading-[20.42px] bg-white dark:bg-bgColorIcon border-none rounded-md flex items-center px-2 cursor-pointer"
+        className="w-[158px] h-[40px] border uppercase font-bold text-sm leading-[18.42px] bg-white dark:bg-bgColorIcon border-none rounded-md flex items-center px-2 cursor-pointer"
         onClick={toggleDropdown}
       >
         {selectedOption ? (
           <div className="flex justify-between items-center w-full">
-            <BsCurrencyBitcoin className="w-7 h-7 text-primaryLight dark:text-primary" />
+            <BsCurrencyBitcoin className="w-5 h-5 text-primaryLight dark:text-primary" />
             <p>{selectedOption.label}</p>
             <BsChevronDown className="text-black dark:text-white font-bold" />
           </div>

@@ -26,7 +26,7 @@ const Indicators = () => {
         <div className="flex justify-center items-center">
           <div
             onClick={() => setActive(true)}
-            className={`rounded-lg cursor-pointer font-bold md:text-[20px] text-[14px] ${
+            className={`rounded-lg cursor-pointer font-bold md:text-base text-[14px] ${
               active
                 ? "bg-[#f3fafb] dark:bg-bgColorIcon text-black dark:text-white"
                 : "text-textGray"
@@ -36,7 +36,7 @@ const Indicators = () => {
           </div>
           <div
             onClick={() => setActive(false)}
-            className={`rounded-lg cursor-pointer font-bold md:text-[20px] text-[14px] ${
+            className={`rounded-lg cursor-pointer font-bold md:text-base text-[14px] ${
               active
                 ? "text-textGray"
                 : "bg-[#f3fafb] dark:bg-bgColorIcon text-black dark:text-white"
@@ -49,41 +49,41 @@ const Indicators = () => {
           ""
         ) : (
           <div className="md:flex hidden justify-center items-center gap-2">
-            <div className="w-[108px] h-[42px] bg-bgColorIconLight dark:bg-black rounded-xl flex justify-center items-center text-[20px] font-medium bg">
+            <div className="w-[98px] h-[32px] bg-bgColorIconLight dark:bg-black rounded-xl flex justify-center items-center text-base font-medium">
               <span className="text-primaryLight capitalize mr-2">buy</span> 66
             </div>
-            <div className="w-[108px] h-[42px] bg-bgColorIconLight dark:bg-black rounded-xl flex justify-center items-center text-[20px] font-medium">
+            <div className="w-[98px] h-[32px] bg-bgColorIconLight dark:bg-black rounded-xl flex justify-center items-center text-base font-medium">
               <span className="text-redColor capitalize mr-2">sell</span> 29
             </div>
           </div>
         )}
       </div>
       {active ? (
-        <div className="flex items-center md:mt-20 mt-5 gap-2 p-2 flex-row md:justify-center">
+        <div className="flex items-center md:mt-3 mt-5 gap-2 p-2 flex-row md:justify-center">
           <div className="flex-grow">
             <Image
               src={oscilllators}
               alt="oscilllators"
-              className="w-full h-auto object-cover"
+              className="w-[90%] h-auto object-cover"
             />
           </div>
           <div className="flex-grow mb-4 md:mb-12">
             <Image
               src={summary}
               alt="summary"
-              className="w-full h-auto object-cover"
+              className="w-[90%] h-auto object-cover"
             />
           </div>
           <div className="flex-grow">
             <Image
               src={moving}
               alt="moving"
-              className="w-full h-auto object-cover"
+              className="w-[90%] h-auto object-cover"
             />
           </div>
         </div>
       ) : (
-        <div className="px-7 md:mt-40 mt-5">
+        <div className="px-7 md:mt-20 mt-5">
           <div className="flex flex-grow">
             <Image
               src={result}

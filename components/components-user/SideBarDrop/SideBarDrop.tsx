@@ -19,12 +19,12 @@ const SideBarDrop = () => {
       icon: AiOutlineLineChart,
     },
     {
-      link: "/user/wallet",
+      link: "/user/wallet/Main",
       title: "Wallet",
       icon: CiWallet,
     },
     {
-      link: "/user/vip-member",
+      link: "/user/vip-member/General",
       title: "Vip Member",
       icon: BsPersonVcard,
     },
@@ -36,12 +36,14 @@ const SideBarDrop = () => {
   ];
   const router = useRouter();
   const { theme } = useTheme();
+  const isVipMemberPage = router.pathname.startsWith("/user/vip-member/");
+  const isWalletPage = router.pathname.startsWith("/user/wallet/");
 
   return (
     <div
       className={`hidden md:block fixed ${
-        open ? "w-[285px]" : "w-20"
-      } dark:bg-bgHeader bg-white min-h-screen pt-6 relative duration-300 top-0 left-0`}
+        open ? "w-[265px]" : "w-20"
+      } dark:bg-bgHeader bg-white h-screen pt-6 relative duration-300 top-0 left-0`}
     >
       <div
         onClick={() => setOpen(!open)}
@@ -63,6 +65,8 @@ const SideBarDrop = () => {
             key={index}
             className={`flex pl-6 py-4 w-full cursor-pointer hover:bg-light-white  items-center gap-x-4 
            ${
+             (isVipMemberPage && Menu.title === "Vip Member") ||
+             (isWalletPage && Menu.title === "Wallet") ||
              router.pathname === Menu.link
                ? `border-r-[3px] ${
                    theme === "dark"
@@ -71,18 +75,17 @@ const SideBarDrop = () => {
                  }`
                : "text-textGray"
            }
-          
             `}
           >
             <Link
               className="flex w-full justify-start items-center gap-4"
               href={Menu.link}
             >
-              <Menu.icon className="w-[30px] h-[30px] font-bold" />
+              <Menu.icon className="w-[20px] h-[20px] font-bold" />
               <span
                 className={`${
                   !open && "hidden"
-                } origin-left duration-200 font-medium text-base leading-[20.42px]`}
+                } origin-left duration-200 font-medium text-sm leading-[18.42px]`}
               >
                 {Menu.title}
               </span>
@@ -90,16 +93,16 @@ const SideBarDrop = () => {
           </li>
         ))}
       </ul>
-      <div className="absolute bottom-0 left-0 w-full border-t-2 py-10 border-textGray text-black dark:text-white">
+      <div className="absolute bottom-0 left-0 w-full border-t-2 py-6 border-textGray text-black dark:text-white">
         <Link
           className="flex w-full justify-start items-center gap-4 px-6"
           href="/"
         >
-          <FiLogOut className="w-[30px] h-[30px] font-bold" />
+          <FiLogOut className="w-[20px] h-[20px] font-bold" />
           <span
             className={`${
               !open && "hidden"
-            } origin-left duration-200 font-medium text-base leading-[20.42px]`}
+            } origin-left duration-200 font-medium text-sm leading-[18.42px]`}
           >
             Log out
           </span>

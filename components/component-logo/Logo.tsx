@@ -12,10 +12,10 @@ const Logo = () => {
       <Image
         src={logo}
         alt="logoBOTrade"
-        className="md:w-[53.62px] w-[43px] h-[38px] md:h-[46.59px] object-cover"
+        className="md:w-[40px] w-[43px] h-[38px] md:h-auto object-cover"
       />
       <h1
-        className={`font-bold md:text-[30px] text-xl text-black dark:text-white leading-[38.28px] `}
+        className={`font-bold md:text-[20px] text-xl text-black dark:text-white leading-[38.28px] `}
       >
         AdTrade
       </h1>

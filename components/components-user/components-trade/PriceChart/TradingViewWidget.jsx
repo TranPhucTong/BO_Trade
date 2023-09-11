@@ -38,7 +38,7 @@ export default function TradingViewWidget() {
         new window.TradingView.widget({
           autosize: false,
           width: 1210.2,
-          height: 694,
+          height: 340,
           symbol: "NASDAQ:AAPL",
           interval: "D",
           timezone: "Etc/UTC",

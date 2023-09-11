@@ -12,14 +12,14 @@ const FooterHome = () => {
   return (
     <footer className="header md:w-full flex md:flex-row w-full justify-between items-center md:px-[50px] md:pb-10 px-6 py-10">
       <div className="w-full md:flex hidden md:justify-between md:items-center">
-        <div className="p-4 flex gap-2 border-l-[2px] border-primary">
+        <div className="p-4 flex gap-2 border-l-[2px] border-primaryLight dark:border-primary">
           <Image
             src={coppyright}
             className="w-[20px] h-[20px] object-cover"
             alt=""
           />
           <p className="font-normal text-xl leading-[20px]">
-            2023 AdTrade - Design by Thai Kha My
+            2023 AdTrade - Lorem ipsum
           </p>
         </div>
         <div className="cursor-pointer mr-20">
@@ -56,7 +56,7 @@ const FooterHome = () => {
               alt=""
             />
             <p className="font-normal text-[12px] leading-[15.31px]">
-              2023 AdTrade - Design by Thai Kha My
+              2023 AdTrade - Lorem ipsum
             </p>
           </div>
         </div>

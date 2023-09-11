@@ -49,3 +49,13 @@ code {
 #tradingview_6dea5-wrapper {
   margin: 0 0 !important;
 }
+
+.bg_upgrade {
+  background-image: url("https://orient8agency.com/wp-content/uploads/2023/04/Growth-graph.jpg");
+}
+
+.bg-blur {
+  backdrop-filter: blur(10px); /* Điều chỉnh mức độ blur theo mong muốn */
+  background-color: rgba(117, 116, 116, 0.05); /* Màu nền với độ trong suốt */
+  border-radius: 20px; /* Độ cong cho viền */
+}

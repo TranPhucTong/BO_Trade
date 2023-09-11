@@ -44,15 +44,15 @@ const Reason = () => {
   const { theme } = useTheme();
   const quotation = theme === "dark" ? quotationDark : quotationLight;
   return (
-    <div className="w-full h-auto md:px-[50px] md:py-[60px] px-6 py-6 flex md:flex-row flex-col  gap-16 md:justify-center md:items-center justify-center items-start">
-      <div className="flex md:w-[50%] w-full flex-col justify-center items-start gap-16 text-left">
+    <div className="w-full h-auto md:px-[100px] md:py-[40px] px-6 py-6 flex md:flex-row flex-col  gap-14 md:justify-center md:items-center justify-center items-start">
+      <div className="flex md:w-[50%] w-full flex-col justify-center items-start gap-14 text-left">
         <div className="w-full">
           <Image
             className=" object-cover w-[78px] h-auto bg-transparent"
             src={quotation}
             alt="quotation"
           />
-          <h1 className="py-8 text-[40px] leading-[52px] w-full font-bold capitalize">
+          <h1 className="py-8 text-[30px] leading-[42px] w-full font-bold capitalize">
             Why should you choose <br className="md:hidden block" /> to
             <br className="md:block hidden" /> invest at AdTrade?
           </h1>
@@ -73,21 +73,21 @@ const Reason = () => {
           {cardData.map((item, index) => (
             <div
               key={index}
-              className="w-[340px] h-[261px] rounded-[40px] dark:bg-bgColorBox bg-bgColorBoxLight dark:border-b-transparent hover:border-b-[4px] border-primaryLight flex flex-col"
+              className="w-full h-[250px] rounded-[40px] dark:bg-bgColorBox bg-bgColorBoxLight dark:border-b-transparent hover:border-b-[4px] border-primaryLight flex flex-col"
             >
-              <div className="p-6 flex flex-col justify-between items-start text-left gap-8">
-                <div className="flex gap-8 justify-center items-center">
+              <div className="p-6 flex flex-col justify-between items-start text-left gap-6">
+                <div className="flex gap-6 justify-center items-center">
                   <Image
                     className="w-[50px] h-[50px] object-cover"
                     src={item.image}
                     alt="quality"
                   />
-                  <h3 className="font-bold text-[20px] leading-[26px]">
+                  <h3 className="font-bold text-[18px] leading-[24px]">
                     {item.title}
                   </h3>
                 </div>
                 <div className="border-t-[1px] w-[50px] dark:border-primary border-primaryLight"></div>
-                <p className="font-normal text-xl leading-[20.42px] text-textGray">
+                <p className="font-normal text-lg leading-[20.42px] text-textGray">
                   {item.content}
                 </p>
               </div>

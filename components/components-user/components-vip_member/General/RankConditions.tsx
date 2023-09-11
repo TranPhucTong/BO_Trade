@@ -1,44 +1,42 @@
 import React from "react";
-import { BsArrowUpRight } from "react-icons/bs";
 import { TbMessageCircleQuestion } from "react-icons/tb";
-import questionImage from "../../../../public/VipMember_image/so1.svg";
+import { BsArrowUpRight } from "react-icons/bs";
+import image_so1 from "../../../../public/VipMember_image/so1.svg";
 import Image from "next/image";
 
 const RankConditions = () => {
   return (
-    <div className="bg-white relative rounded-[10px] px-6 py-6">
+    <div className="px-6 py-4 bg-white dark:bg-[#151818] rounded-[10px]  dark:border dark:border-text_4">
       <div className="flex justify-end items-center">
-        <div className="flex w-[85%] justify-end items-center h-auto p-[2px] border border-primaryLight rounded-tl-none rounded-bl-none rounded-tr-[22px] rounded-br-[8px]">
-          <div className="flex justify-center items-center gap-4">
-            <p className="font-medium text-base leading-[20.42px]">Vip Level</p>
-            <TbMessageCircleQuestion className="w-5 h-5 text-primaryLight" />
-            <div className="py-4 px-4 bg-primaryLight rounded-tl-[5px] rounded-tr-[20px] rounded-br-[5px] rounded-bl-[20px] flex justify-center items-center text-white gap-2">
+        <div className="border border-primaryLight dark:border-primary w-[90%] rounded-tl-0 rounded-tr-[22px] rounded-bl-0 rounded-br-[8px]">
+          <div className="flex relative  justify-end items-center gap-2 p-1">
+            <p>Vip Level</p>
+            <TbMessageCircleQuestion className="w-5 h-5 text-primaryLight dark:text-primary" />
+            <button className="flex text-white dark:text-black justify-center items-center px-4 py-3 gap-2 bg-primaryLight dark:bg-primary rounded-tl-[5px] rounded-tr-[20px] rounded-br-[5px] rounded-bl-[20px]">
               <BsArrowUpRight className="w-5 h-5" />
-              <p className="font-bold leading-[20.42px] text-base">
-                Upgrace LV
-              </p>
-            </div>
+              <p>Upgrace LV</p>
+            </button>
             <Image
-              src={questionImage}
-              alt="questionImage"
-              className="absolute left-6 top-4 h-[70px] object-cover rounded-full "
+              src={image_so1}
+              className="rounded-full w-16 h-16 object-cover absolute -top-1 -left-10"
+              alt="image_so1"
             />
           </div>
         </div>
       </div>
-      <h2 className="font-medium text-base text-center leading-[20.42px] mt-8">
-        Rank Conditions
-      </h2>
-      <div className="p-4 mt-6 rounded-lg bg-colorBgBoxMemberLight text-base font-normal leading-[20.42px]">
-        <div className="flex justify-between items-center">
-          <p>F1 Volume (This Week)</p>
+      <h1 className="text-center text-sm font-medium my-2">Rank Conditions</h1>
+      <div className="flex-col flex gap-2 p-4 rounded-[10px] bg-colorBgBoxMemberLight dark:bg-black">
+        <div className="flex justify-between items-center font-normal text-textGray dark:text-text_2">
+          <p className="text-sm">F1 Volume (This Week)</p>
           <p>
-            80 / <span className="text-textGray">2.000</span>
+            <span className="text-black dark:text-white">80 / </span>2.000
           </p>
         </div>
-        <div className="flex justify-between items-center mt-2">
-          <p>F1 Vip</p>
-          <p>2 / 4</p>
+        <div className="flex justify-between items-center font-normal text-textGray dark:text-text_2 ">
+          <p className="text-sm">F1 Vip</p>
+          <p>
+            <span className="text-black dark:text-white">2 / 4</span>
+          </p>
         </div>
       </div>
     </div>

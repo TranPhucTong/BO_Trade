@@ -37,17 +37,17 @@ const FeedBack = () => {
   const quotation = theme === "dark" ? quotationDark : quotationLight;
   const quotes = theme === "dark" ? quotesDark : quotesLight;
   return (
-    <div className="w-full h-auto md:px-[50px] md:py-[60px] px-6 py-10 gap-20 flex flex-col justify-center items-center">
-      <div className="w-full flex flex-col gap-6 md:justify-center md:items-center justify-center items-start">
+    <div className="w-full h-auto md:px-[100px] md:py-[40px] px-6 py-10 gap-10 flex flex-col justify-center items-center">
+      <div className="w-full flex flex-col gap-4 md:justify-center md:items-center justify-center items-start">
         <Image
-          className=" object-cover w-auto h-auto bg-transparent"
+          className=" object-cover w-[50px] h-auto bg-transparent"
           src={quotation}
           alt="quotation"
         />
-        <h1 className="text-[40px] leading-[52px] md:text-center text-left font-bold capitalize">
+        <h1 className="text-[30px] leading-[42px] md:text-center text-left font-bold capitalize">
           What our Customers Say
         </h1>
-        <div className="border-t-[3px] w-[136px] dark:border-primary border-primaryLight"></div>
+        <div className="border-t-[3px] w-[126px] dark:border-primary border-primaryLight"></div>
       </div>
 
       <div className="md:hidden flex w-full">
@@ -70,7 +70,11 @@ const FeedBack = () => {
               className="flex w-full justify-center md:justify-center md:items-start items-center"
               key={index}
             >
-              <div className=" bg-bgColorBoxLight dark:bg-bgColorBox z-10 w-[100%] h-[280px] rounded-[40px] border-[1px] border-primary">
+              <div
+                className={` bg-bgColorBoxLight ${
+                  theme === "dark" && "bg-blur"
+                } z-10 w-[100%] h-[280px] rounded-[40px] border-[1px] border-primary`}
+              >
                 <div className="p-6 flex flex-col justify-center items-start gap-8">
                   <div className="flex justify-center items-center gap-4">
                     <AiFillStar className="dark:text-primary text-primaryLight w-8 h-8" />
@@ -106,21 +110,23 @@ const FeedBack = () => {
         </Swiper>
       </div>
 
-      <div className="flex z-50 md:flex-row flex-col md:mt-32 w-full relative justify-between items-center">
+      <div className="flex z-50 md:flex-row flex-col md:my-28 w-full relative justify-between items-center">
         {cardData.map((item, index) => (
           <div
             key={index}
-            className="md:flex bg-bgColorBoxLight dark:bg-bgColorBlur hidden w-[482px] h-[222px] rounded-[40px] shadow-xl dark:border-[1px] dark:border-primary"
+            className={`md:flex bg-bgColorBoxLight ${
+              theme === "dark" && "bg-blur"
+            }  hidden w-[422px] h-[202px] rounded-[40px] shadow-xl dark:border-[1px] dark:border-primary`}
           >
             <div className="p-6 h-full flex flex-col justify-between items-start">
               <div className="flex justify-center items-center gap-4">
-                <AiFillStar className="dark:text-primary text-primaryLight w-8 h-8" />
-                <AiFillStar className="dark:text-primary text-primaryLight w-8 h-8" />
-                <AiFillStar className="dark:text-primary text-primaryLight w-8 h-8" />
-                <AiFillStar className="dark:text-primary text-primaryLight w-8 h-8" />
-                <AiFillStar className="dark:text-primary text-primaryLight w-8 h-8" />
+                <AiFillStar className="dark:text-primary text-primaryLight w-6 h-6" />
+                <AiFillStar className="dark:text-primary text-primaryLight w-6 h-6" />
+                <AiFillStar className="dark:text-primary text-primaryLight w-6 h-6" />
+                <AiFillStar className="dark:text-primary text-primaryLight w-6 h-6" />
+                <AiFillStar className="dark:text-primary text-primaryLight w-6 h-6" />
               </div>
-              <p className="font-normal text-xl leading-[20.42px] text-left">
+              <p className="font-normal text-lg leading-[18.42px] text-left">
                 {`"${item.content}"`}
               </p>
               <div className="flex justify-between items-center w-full">
@@ -128,15 +134,15 @@ const FeedBack = () => {
                   <Image
                     src={item.imageAVT}
                     alt="imgCustomer"
-                    className="w-10 h-10 rounded-full object-cover"
+                    className="w-8 h-8 rounded-full object-cover"
                   />
-                  <h3 className="font-bold text-xl leading-[20.42px]">
+                  <h3 className="font-bold text-lg leading-[18.42px]">
                     {item.name}
                   </h3>
                 </div>
                 <Image
                   src={quotes}
-                  className="w-auto h-[47px] object-cover"
+                  className="w-[50px] h-auto object-cover"
                   alt="quotes"
                 />
               </div>
@@ -144,15 +150,15 @@ const FeedBack = () => {
           </div>
         ))}
 
-        <div className="md:w-[760px] bg-transparent md:bg-primaryLight md:dark:bg-bgColorBlur text-white md:absolute -z-10 w-full md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 md:h-auto md:rounded-[40px]  md:border-[1px] dark:md:border-primary md:border-transparent">
-          <div className="md:px-40 md:py-20 flex flex-col justify-center items-center w-full h-full gap-4">
+        <div className="md:w-[750px] bg-transparent md:bg-primaryLight md:dark:bg-[#161919] text-white md:absolute -z-10 w-full md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 md:h-auto md:rounded-[40px]  md:border-[1px] dark:md:border-primary md:border-transparent">
+          <div className="md:px-40 md:py-20 flex flex-col justify-center items-center w-full h-full gap-2">
             <div className="md:hidden block ">
               <Image src={coin} className="w-[50px] h-[50px]" alt="CoinImage" />
             </div>
-            <h1 className="md:dark:text-primary text-primaryLight dark:text-primary md:text-white font-medium text-[40px] leading-[51px]">
+            <h1 className="md:dark:text-primary text-primaryLight dark:text-primary md:text-white font-medium text-[30px] leading-[40px]">
               Create Account
             </h1>
-            <p className="font-normal text-black md:text-white dark:text-white md:text-[20px] text-[14px] text-center leading-[17.36px] md:leading-[26px]">
+            <p className="font-normal mb-2 text-black md:text-white dark:text-white md:text-[18px] text-[14px] text-center leading-[17.36px] md:leading-[26px]">
               All the Lorem Ipsum generators on the Internet{" "}
               <br className="md:hidden block" /> tend to repeat predefined
               chunks as necessary.

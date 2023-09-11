@@ -49,14 +49,14 @@ const Advantages = () => {
   const { theme } = useTheme();
   const quotation = theme === "dark" ? quotationDark : quotationLight;
   return (
-    <div className="w-full h-auto px-6 py-10 md:px-[50px] md:py-[60px] gap-16 flex flex-col justify-center items-center">
-      <div className="w-full flex flex-col gap-6 justify-center items-start md:items-center">
+    <div className="w-full h-auto px-6 py-10 md:px-[100px] md:py-[40px] gap-14 flex flex-col justify-center items-center">
+      <div className="w-full flex flex-col gap-4 justify-center items-start md:items-center">
         <Image
-          className=" object-cover w-auto h-auto bg-transparent"
+          className=" object-cover w-[50px] h-auto bg-transparent"
           src={quotation}
           alt="quotation"
         />
-        <h1 className="text-[40px] leading-[52px] md:text-center text-left w-full capitalize font-bold">
+        <h1 className="text-[30px] leading-[42px] md:text-center text-left w-full capitalize font-bold">
           Advantages when <br className="md:hidden block" /> dealing{" "}
           <br className="md:block hidden" />
           with AdTrade
@@ -65,7 +65,7 @@ const Advantages = () => {
       </div>
       <Swiper
         className="md:w-full w-[85%] flex md:justify-between justify-center items-center"
-        spaceBetween={20}
+        spaceBetween={0}
         pagination={{ clickable: true }}
         freeMode
         breakpoints={{
@@ -82,12 +82,12 @@ const Advantages = () => {
             className="flex justify-center md:justify-center md:items-start items-center"
             key={index}
           >
-            <div className="w-[281px] h-[362px] rounded-[40px] cursor-pointer text-black dark:text-white dark:bg-bgColorBox bg-white dark:hover:bg-primary hover:bg-primaryLight dark:hover:text-black hover:text-white">
+            <div className="w-[250px] h-[350px] rounded-[40px] cursor-pointer text-black dark:text-white dark:bg-bgColorBox bg-white dark:hover:bg-primary hover:bg-primaryLight dark:hover:text-black hover:text-white">
               <div className="p-8 text-left flex flex-col gap-4">
-                <div className="w-[80px] h-[80px] flex justify-center items-center  rounded-xl bg-bgColorIconLight dark:bg-bgColorIcon">
+                <div className="w-[60px] h-[60px] flex justify-center items-center  rounded-xl bg-bgColorIconLight dark:bg-bgColorIcon">
                   <Image className="object-cover" src={item.image} alt="" />
                 </div>
-                <h2 className="font-bold text-[20px] leading-[26px]">
+                <h2 className="font-bold text-[18px] leading-[24px]">
                   {item.title !== "Transaction unlimited" ? (
                     item.title
                   ) : (
@@ -96,7 +96,7 @@ const Advantages = () => {
                     </div>
                   )}
                 </h2>
-                <p className="font-normal text-base leading-[20px]">
+                <p className="font-normal text-sm leading-[18px]">
                   {item.content}
                 </p>
               </div>

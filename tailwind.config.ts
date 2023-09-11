@@ -22,20 +22,26 @@ const config: Config = {
 
         textGray: "rgba(117, 116, 116, 1)",
         text_2: "rgba(198, 198, 198, 1)",
+        text_4: "rgba(47, 47, 47, 1)",
 
         redColor: "rgba(255, 49, 65, 1)",
         greenColor: "rgba(0, 142, 118, 1)",
 
         bgColorBlur: "rgba(117, 116, 116, 0.3)",
         bgHeader: "#191c1c",
+
+        bgBlur_2: {
+          backdropFilter: "blur(10px)",
+          backgroundColor: "rgba(255, 255, 255, 0.2)",
+          borderRadius: "20px",
+        },
       },
-      backgroundImage: {
-        "box-gradient":
-          "linear-gradient(0deg, rgba(117, 116, 116, 0.05), rgba(117, 116, 116, 0.05)),linear-gradient(105.86deg, rgba(123, 204, 197, 0.5) 0%, rgba(123, 204, 197, 0) 54.77%, rgba(123, 204, 197, 0.5) 100%);",
+      screens: {
+        "md-up": "768px",
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
   darkMode: "class",
 };
 export default config;
