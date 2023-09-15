@@ -93,37 +93,41 @@ const Exchange = () => {
     },
   ];
   return (
-    <div className="px-4">
-      <div className="p-6 bg-colorMenuNavigate dark:bg-[#151818] rounded-lg">
-        <div className="flex justify-between items-center gap-4">
-          <div className="px-4 py-5 rounded-[10px] bg-primaryLight dark:bg-primary text-white dark:text-black">
+    <div className="px-4 mb-4">
+      <div className="md:p-6 md:bg-colorMenuNavigate md:dark:bg-[#151818] bg-transparent rounded-lg">
+        <div className="flex md:flex-row flex-col md:justify-between md:items-center gap-4">
+          <div className="md:block hidden px-4 py-5 rounded-[10px] bg-primaryLight dark:bg-primary text-white dark:text-black">
             <p className="text-lg font-medium">Total Assets (USDT)</p>
             <div className="flex justify-center items-center gap-4 mt-2">
               <p className="text-4xl font-medium">$15,243.56</p>
               <PiEyeClosedLight className="w-5 h-5" />
             </div>
           </div>
-          <div className="flex-grow px-4 py-5 bg-white dark:bg-black rounded-lg text-left flex flex-col gap-2 border border-text_2">
-            <h2 className="text-textGray dark:text-text_2 text-lg">
+          <div className="md:flex-grow w-full px-4 py-5 bg-white dark:bg-black rounded-lg text-left flex flex-col gap-2 border border-text_2">
+            <h2 className="text-textGray dark:text-text_2 md:text-lg text-sm">
               Real Account
             </h2>
             <div className="flex justify-between items-center gap-4">
-              <p className="font-medium text-4xl">$0,023.8</p>
-              <button className="flex px-6 py-2 gap-2 dark:bg-primary bg-primaryLight text-white rounded-[10px]">
-                <p className="dark:text-black font-medium">Transfer</p>
-                <GrPowerCycle className="w-5 h-5" />
+              <p className="font-medium text-2xl">$0,023.8</p>
+              <button className="flex justify-center items-center md:px-6 px-7 py-2 gap-2 dark:bg-primary bg-primaryLight text-white rounded-[10px]">
+                <p className="dark:text-black font-medium md:text-base text-xs">
+                  Transfer
+                </p>
+                <GrPowerCycle className="md:w-5 md:h-5 w-4 h-4" />
               </button>
             </div>
           </div>
           <div className="px-4 py-5 bg-white dark:bg-black rounded-lg text-left flex flex-col gap-2 border border-text_2">
-            <h2 className="text-textGray dark:text-text_2 text-lg">
+            <h2 className="text-textGray dark:text-text_2 md:text-lg text-sm">
               Demo Account
             </h2>
             <div className="flex justify-between items-center gap-4">
-              <p className="font-medium text-4xl">$1,000.54</p>
-              <button className="flex px-10 py-2 gap-2 dark:bg-primary bg-primaryLight text-white rounded-[10px]">
-                <p className="dark:text-black font-medium">Refill Balance</p>
-                <GrPowerCycle className="w-5 h-5" />
+              <p className="font-medium text-2xl">$1,000.54</p>
+              <button className="flex justify-center  md:w-[180px] items-center md:px-4 px-3 py-2 md:gap-2 gap-2 dark:bg-primary bg-primaryLight text-white rounded-[10px]">
+                <p className="dark:text-black font-medium md:text-base w-full text-xs">
+                  Refill Balance
+                </p>
+                <GrPowerCycle className="md:w-5 md:h-5 w-4 h-4" />
               </button>
             </div>
           </div>

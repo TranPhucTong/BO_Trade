@@ -3,32 +3,7 @@ import Select from "react-select";
 import DateRangePicker from "../../../components/components-user/components-vip_member/DateRangePicker";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { AiOutlineDotChart, AiOutlineBarChart } from "react-icons/ai";
-import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-  LineElement,
-  PointElement,
-  RadialLinearScale,
-  Title,
-} from "chart.js";
 import { Line } from "react-chartjs-2";
-ChartJS.register(
-  ArcElement,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-  LineElement,
-  PointElement,
-  RadialLinearScale,
-  Title
-);
 
 const dataOrder = {
   labels: ["06/07", "07/07", "08/07", "09/07", "10/07", "11/07", "12/07"],
@@ -48,7 +23,6 @@ const Commission = () => {
     { value: "option1", label: "Trading Commission" },
     { value: "option2", label: "Trading Work" },
   ];
-  const optionOrders = {};
   return (
     <div className="bg-white dark:bg-transparent md:dark:bg-[#151818] dark:border dark:border-text_4 w-full rounded-[10px] px-4 py-4">
       <div className="flex justify-between items-center">
@@ -91,11 +65,7 @@ const Commission = () => {
             <p className="text-sm font-semibold">Trading payout chart</p>
           </div>
           <div className="md:w-full w-[360px] md:p-2 rounded-lg bg-colorBgBoxMemberLight dark:bg-black mt-4">
-            <Line
-              className="w-full h-full"
-              data={dataOrder}
-              options={optionOrders}
-            ></Line>
+            <Line className="w-full h-full" data={dataOrder}></Line>
           </div>
         </div>
         <div className="md:w-3/5 w-full">

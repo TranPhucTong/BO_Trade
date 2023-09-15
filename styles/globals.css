@@ -59,3 +59,24 @@ code {
   background-color: rgba(117, 116, 116, 0.05); /* Màu nền với độ trong suốt */
   border-radius: 20px; /* Độ cong cho viền */
 }
+
+/* CSS cho hiệu ứng SideBarDrop mở ra từ bên trái */
+.side-bar-drop.open {
+  left: 0; /* Di chuyển SideBarDrop về phía bên phải để hiển thị */
+}
+
+/* CSS để ẩn nội dung khi SideBarDrop mở */
+.main-content.hidden {
+  display: none;
+}
+
+.dark #input-demo {
+  background-color: #151818 !important;
+  color: rgba(198, 198, 198, 1);
+}
+
+.dark #input-search {
+  background-color: #151818 !important;
+  color: rgba(198, 198, 198, 1);
+  border: 1px solid rgba(47, 47, 47, 1);
+}

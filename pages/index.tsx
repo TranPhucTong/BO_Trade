@@ -8,6 +8,7 @@ import OurCurrencies from "@/components/components-home/OurCurrencies/OurCurrenc
 import Steps from "@/components/components-home/Steps/Steps";
 import FeedBack from "@/components/components-home/FeedBack/FeedBack";
 import ButtonHome from "@/components/components-home/ButtonHome/ButtonHome";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 

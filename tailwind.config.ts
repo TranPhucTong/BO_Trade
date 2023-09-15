@@ -18,7 +18,9 @@ const config: Config = {
 
         colorMenuNavigate: "rgba(117, 116, 116, 0.05)",
         colorBgBoxMemberLight: "rgba(249, 249, 249, 1)",
+
         colorError: "rgba(255, 160, 159, 1)",
+        colorSuccess: "rgba(123, 204, 197, 1)",
 
         textGray: "rgba(117, 116, 116, 1)",
         text_2: "rgba(198, 198, 198, 1)",
@@ -29,6 +31,10 @@ const config: Config = {
 
         bgColorBlur: "rgba(117, 116, 116, 0.3)",
         bgHeader: "#191c1c",
+        bgBoxDark: "#151818",
+        Secondary2: "rgba(175, 192, 255, 1)",
+        Secondary3: "rgba(255, 251, 143, 1)",
+        Secondary: "rgba(91, 126, 254, 1)",
 
         bgBlur_2: {
           backdropFilter: "blur(10px)",

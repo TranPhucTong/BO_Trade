@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { PiEyeClosedLight } from "react-icons/pi";
 import withdraw from "../../../public/wallet/Withdraw.svg";
@@ -91,12 +91,12 @@ const Main = () => {
     },
   ];
   return (
-    <div className="px-4">
-      <div className="p-6 bg-colorMenuNavigate dark:bg-[#151818] rounded-lg">
-        <div className="flex justify-between items-center gap-4">
-          <div className="px-4 py-7 rounded-[10px] bg-primaryLight dark:bg-primary text-white dark:text-black">
+    <div className="px-4 mb-4">
+      <div className="md:p-6 md:bg-colorMenuNavigate md:dark:bg-[#151818] bg-transparent rounded-lg">
+        <div className="flex md:flex-row flex-col md:justify-between md:items-center gap-4">
+          <div className="md:block hidden px-4 py-7 rounded-[10px] bg-primaryLight dark:bg-primary text-white dark:text-black">
             <p className="text-lg font-medium">Total Assets (USDT)</p>
-            <div className="flex justify-center items-center gap-4 mt-2">
+            <div className="flex md:justify-center justify-start items-center gap-4 mt-2">
               <p className="text-4xl font-medium">$15,243.56</p>
               <PiEyeClosedLight className="w-5 h-5" />
             </div>

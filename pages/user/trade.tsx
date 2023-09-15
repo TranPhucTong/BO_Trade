@@ -4,7 +4,7 @@ import Amount from "@/components/components-user/components-trade/Amount/Amount"
 import Indicators from "@/components/components-user/components-trade/Indicators/Indicators";
 import TradingViewWidget from "@/components/components-user/components-trade/PriceChart/TradingViewWidget";
 
-const trade = () => {
+const Trade = () => {
   return (
     <div>
       <div className="bg-white w-full h-[340px]">
@@ -22,4 +22,4 @@ const trade = () => {
   );
 };
 
-export default trade;
+export default Trade;
