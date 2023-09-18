@@ -22,8 +22,8 @@ const RegistrationForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-      <div className="flex w-full justify-between items-center gap-4 mt-2">
-        <div className="w-[50%]">
+      <div className="flex  md:flex-row flex-col  w-full justify-between items-center gap-4 mt-2">
+        <div className="md:w-[50%] w-full">
           <label
             htmlFor="email"
             className="block text-black dark:text-text_2 text-sm font-normal mb-2 "
@@ -48,7 +48,7 @@ const RegistrationForm = () => {
             </p>
           )}
         </div>
-        <div className="w-[50%]">
+        <div className="md:w-[50%] w-full">
           <label
             htmlFor="username"
             className="block text-black dark:text-text_2 text-sm font-normal mb-2"
@@ -71,8 +71,8 @@ const RegistrationForm = () => {
         </div>
       </div>
 
-      <div className="flex justify-between items-center w-full gap-4 mt-6">
-        <div className="w-[50%]">
+      <div className="flex md:flex-row flex-col justify-between items-center w-full gap-4 mt-6">
+        <div className="md:w-[50%] w-full">
           <label
             htmlFor="lastname"
             className="block text-black dark:text-text_2 text-sm font-normal mb-2"
@@ -93,7 +93,7 @@ const RegistrationForm = () => {
             </p>
           )}
         </div>
-        <div className="w-[50%]">
+        <div className="md:w-[50%] w-full">
           <label
             htmlFor="firstname"
             className="block text-black dark:text-text_2 text-sm font-normal mb-2"
@@ -116,7 +116,7 @@ const RegistrationForm = () => {
         </div>
       </div>
 
-      <div className="flex items-center justify-between mt-6 mb-6">
+      <div className="flex items-center md:justify-between justify-center mt-6 mb-6">
         <button
           type="submit"
           className="bg-primaryLight dark:bg-primary dark:text-black text-white  font-medium text-sm py-2 px-6 rounded-[10px] focus:outline-none focus:shadow-outline"

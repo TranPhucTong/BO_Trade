@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CustomSelect from "../CustomSelect";
-import { Button } from "@mantine/core";
+import { Button, Input, Tooltip } from "@mantine/core";
 import CustomSelectAcount from "../CustomSelectAcount";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import {
@@ -24,29 +24,29 @@ interface Menu {
 const HeaderUser = () => {
   const MenusVipMember: Menu[] = [
     {
-      link: "/user/vip-member/General",
+      link: "/user/vip-member/general",
       name: "General",
     },
     {
-      link: "/user/vip-member/Commission",
+      link: "/user/vip-member/commission",
       name: "Commission",
     },
     {
-      link: "/user/vip-member/Network",
+      link: "/user/vip-member/network",
       name: "Network Management",
     },
     {
-      link: "/user/vip-member/Upgrade",
+      link: "/user/vip-member/upgrade",
       name: "Upgrade Vip Level",
     },
   ];
   const MenusWallet: Menu[] = [
     {
-      link: "/user/wallet/Main",
+      link: "/user/wallet/main",
       name: "Main Wallet",
     },
     {
-      link: "/user/wallet/Exchange",
+      link: "/user/wallet/exchange",
       name: "Exchange Wallet",
     },
   ];
@@ -57,6 +57,9 @@ const HeaderUser = () => {
   const isWalletPage = router.pathname.startsWith("/user/wallet/");
   const isDashBoardPage = router.pathname.startsWith("/user/dashboard");
   const isProfilePage = router.pathname.startsWith("/user/profile");
+  const isQuickDepositPage = router.pathname.startsWith("/user/quick-deposit");
+  const isOrderPage = router.pathname.startsWith("/user/order");
+  const [showQuickDeposit, setShowQuickDeposit] = useState(false);
 
   const currentMenus = isWalletPage ? MenusWallet : MenusVipMember;
   useEffect(() => {
@@ -71,7 +74,7 @@ const HeaderUser = () => {
     dispatch(toggleSideBar());
   };
   return (
-    <div className="md:w-full h-auto md:pl-3 md:pb-3 md:px-0 px-2 py-2 flex justify-between items-start md:bg-transparent bg-white dark:bg-bgColorIcon md:dark:bg-transparent">
+    <div className="md:w-full h-auto md:pl-3 md:pb-3 md:px-0 px-2 py-2 flex justify-between items-start bg-transparent  dark:bg-black md:dark:bg-transparent">
       {isVipMemberPage || isWalletPage ? (
         <div
           className="md:flex hidden justify-center items-center w-auto h-auto bg-colorMenuNavigate rounded-3xl cursor-pointer
@@ -111,7 +114,14 @@ const HeaderUser = () => {
       <div
         onClick={handleToggleSideBar}
         className={`md:hidden ${
-          isVipMemberPage || isWalletPage || isDashBoardPage ? "hidden" : "flex"
+          isVipMemberPage ||
+          isWalletPage ||
+          isDashBoardPage ||
+          isProfilePage ||
+          isQuickDepositPage ||
+          isOrderPage
+            ? "hidden"
+            : "flex"
         } flex justify-center items-center gap-2`}
       >
         <CgMenuLeft className="w-[40px] h-[40px] cursor-pointer" />
@@ -119,14 +129,26 @@ const HeaderUser = () => {
       </div>
       <div
         className={`md:hidden ${
-          isVipMemberPage || isWalletPage || isDashBoardPage ? "hidden" : "flex"
+          isVipMemberPage ||
+          isWalletPage ||
+          isDashBoardPage ||
+          isProfilePage ||
+          isQuickDepositPage ||
+          isOrderPage
+            ? "hidden"
+            : "flex"
         } justify-center items-center gap-2`}
       >
         <CustomSelectAcount />
         <PiBellLight className="w-[40px] h-[40px]" />
       </div>
 
-      {isVipMemberPage || isWalletPage || isDashBoardPage ? (
+      {isVipMemberPage ||
+      isWalletPage ||
+      isDashBoardPage ||
+      isProfilePage ||
+      isQuickDepositPage ||
+      isOrderPage ? (
         <div className="w-full md:hidden block">
           <div className="w-[100%] md:hidden flex justify-between items-center py-2">
             <div
@@ -141,6 +163,12 @@ const HeaderUser = () => {
                 ? "Wallet"
                 : isVipMemberPage
                 ? "Vip Member"
+                : isProfilePage
+                ? "Profile"
+                : isQuickDepositPage
+                ? "Deposit"
+                : isOrderPage
+                ? "Trading History"
                 : "DashBoard"}
             </h1>
             <div className="flex justify-center items-center gap-1">
@@ -196,7 +224,10 @@ const HeaderUser = () => {
       <div className="md:flex hidden justify-center items-start gap-6">
         <div className="flex gap-4 justify-center items-center">
           <CustomSelectAcount />
-          <Button className="w-[140px] h-[40px] text-white dark:text-black rounded-xl capitalize text-sm font-bold bg-primaryLight dark:bg-primary">
+          <Button
+            onClick={() => setShowQuickDeposit(true)}
+            className="w-[140px] h-[40px] text-white dark:text-black rounded-xl capitalize text-sm font-bold bg-primaryLight dark:bg-primary"
+          >
             quick deposit
           </Button>
         </div>
@@ -228,6 +259,64 @@ const HeaderUser = () => {
           <BiDotsVerticalRounded className="w-3 h-3" />
         </div>
       </div>
+      {showQuickDeposit && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div
+            onClick={() => setShowQuickDeposit(!showQuickDeposit)}
+            className="absolute inset-0 bg-gray-950 opacity-50"
+          ></div>
+          <div className="bg-white dark:bg-black dark:border dark:border-gray-300 z-[999] p-4 w-[400px] h-[350px] rounded-xl">
+            <div>
+              <p className="text-black dark:text-text_2 font-medium text-sm text-left mb-2">
+                Choose Wallet
+              </p>
+              <div className="bg-white dark:bg-bgColorBox border border-text_2 rounded-[5px] px-2 py-1 flex justify-between items-center">
+                <p className="font-bold text-primaryLight dark:text-primary text-2xl">
+                  T
+                </p>
+                <p className="text-sm font-medium">0.00</p>
+              </div>
+            </div>
+            <div className="mt-2">
+              <Input.Wrapper
+                id="input-demo"
+                label={
+                  <label className="text-black dark:text-text_2 font-medium text-sm mb-2">
+                    Deposit Amount
+                  </label>
+                }
+              >
+                <Input
+                  id="input-deposit"
+                  placeholder="Please enter amount"
+                  rightSection={
+                    <Tooltip
+                      label="This is public"
+                      position="top-end"
+                      withArrow
+                    >
+                      <div className="text-primaryLight dark:text-primary font-medium text-sm">
+                        All
+                      </div>
+                    </Tooltip>
+                  }
+                />
+              </Input.Wrapper>
+            </div>
+            <div className="mt-3">
+              <p className="text-black dark:text-text_2 font-medium text-sm text-left">
+                Total Receive Amount
+              </p>
+              <h1 className="text-center text-3xl text-black dark:text-white font-medium mt-3">
+                $0.00
+              </h1>
+            </div>
+            <button className="rounded-[5px] w-full py-3 text-white dark:text-black bg-primaryLight dark:bg-primary text-sm font-medium mt-3">
+              Deposit Now
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

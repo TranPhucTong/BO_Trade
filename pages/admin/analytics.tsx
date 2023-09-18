@@ -53,8 +53,8 @@ const Analytics = () => {
   const { theme } = useTheme();
   const imageChartUp = theme === "dark" ? imageChartUpDark : imageChartUpLight;
   return (
-    <div className="flex justify-center items-center gap-4">
-      <div className="w-[50%]">
+    <div className="flex md:flex-row flex-col justify-center items-center gap-4 md:mx-0 mx-4 md:my-0 my-4">
+      <div className="md:w-[50%] w-full">
         <div className="flex flex-wrap gap-4">
           <div className="p-4 flex-grow bg-white dark:bg-bgBoxDark dark:border dark:border-text_4 gap-20 rounded-[10px] shadow-lg border border-text_2 flex justify-between items-center">
             <div>
@@ -143,7 +143,7 @@ const Analytics = () => {
           <p className="font-medium text-sm text-textGray dark:text-text_2">
             Remaining User Balance
           </p>
-          <div className="grid grid-cols-5 w-full mt-2">
+          <div className="grid md:grid-cols-5 grid-cols-3 w-full mt-2">
             {dataRemaining.map((item, index) => (
               <div
                 key={index}
@@ -160,15 +160,15 @@ const Analytics = () => {
           </div>
         </div>
       </div>
-      <div className="w-[50%] h-full">
-        <div className="flex justify-between items-center">
-          <div className="font-medium">
-            <p className="text-sm text-textGray dark:text-text_2">
+      <div className="md:w-[50%] w-full h-full">
+        <div className="flex md:flex-row md:gap-0 gap-2 flex-col justify-between items-center">
+          <div className="font-medium md:block flex justify-between items-center w-full">
+            <p className="md:text-sm text-xs text-textGray dark:text-text_2">
               Account Deposited
             </p>
-            <p className="text-[22px] mt-2">1.378</p>
+            <p className="md:text-[22px] md:mt-2 text-xl">1.378</p>
           </div>
-          <div className="flex justify-center items-center gap-4">
+          <div className="flex md:justify-center justify-between items-center gap-4">
             <div className="">
               <DateRangePicker />
             </div>
@@ -177,7 +177,7 @@ const Analytics = () => {
             </button>
           </div>
         </div>
-        <div className="w-full h-[390px] mt-3 shadow-xl rounded-[10px] bg-white dark:bg-bgBoxDark dark:border dark:border-text_4 border border-text_2"></div>
+        <div className="w-full md:h-[380px] h-[405px] mt-3 shadow-xl rounded-[10px] bg-white dark:bg-bgBoxDark dark:border dark:border-text_4 border border-text_2"></div>
       </div>
     </div>
   );

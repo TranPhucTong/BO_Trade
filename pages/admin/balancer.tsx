@@ -9,8 +9,10 @@ const Balancer = () => {
       <div className="bg-white w-full h-[340px]">
         <TradingViewWidget />
       </div>
-      <div className="w-full rounded-[10px] p-4 bg-white dark:bg-bgBoxDark dark:border dark:border-text_4 shadow-lg border border-text_2 mt-4">
-        <h1 className="text-lg font-medium">Psychological indicator</h1>
+      <div className="w-full rounded-[10px] p-4 md:bg-white bg-transparent md:dark:bg-bgBoxDark md:dark:border md:dark:border-text_4 shadow-lg md:border border-text_2 mt-4">
+        <h1 className="text-lg font-medium md:block hidden">
+          Psychological indicator
+        </h1>
         <div className="flex justify-between items-center gap-2 font-medium text-lg mt-4">
           <p className="text-greenColor">{percentageGreen}%</p>
           <div className="relative w-full h-2">
@@ -23,7 +25,7 @@ const Balancer = () => {
           </div>
           <p className="text-redColor">{percentageRed}%</p>
         </div>
-        <div className="w-full flex justify-between items-center mt-2">
+        <div className="w-full flex justify-between items-center md:mt-2 mt-4">
           <div className="font-normal text-sm text-greenColor">
             <p>Total Amount $0</p>
             <p>Total Buy 0</p>
@@ -33,7 +35,7 @@ const Balancer = () => {
             <p>Total Buy 0</p>
           </div>
         </div>
-        <div className="w-full flex justify-center items-center gap-2">
+        <div className="w-full flex md:justify-center justify-between items-center gap-2 md:mt-0 mt-4">
           <button className="px-6 py-2 rounded-[10px] text-white font-bold text-center text-sm bg-redColor">
             Inverse <br /> Low
           </button>

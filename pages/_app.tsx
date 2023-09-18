@@ -1,6 +1,5 @@
 import LayoutHome from "@/components/layouts/layout-home/LayoutHome";
 import "@/styles/globals.css";
-import "@/styles/ButtonHome.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";

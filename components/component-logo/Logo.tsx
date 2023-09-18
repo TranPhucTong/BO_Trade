@@ -3,12 +3,13 @@ import logoDark from "../../public/images/Logo.svg";
 import logoLight from "../../public/images/Logo_Light.svg";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import Link from "next/link";
 
 const Logo = () => {
   const { theme } = useTheme();
   const logo = theme === "dark" ? logoDark : logoLight;
   return (
-    <div className="flex justify-center items-center md:gap-4 gap-2">
+    <Link href="/" className="flex justify-center items-center md:gap-4 gap-2">
       <Image
         src={logo}
         alt="logoBOTrade"
@@ -19,7 +20,7 @@ const Logo = () => {
       >
         AdTrade
       </h1>
-    </div>
+    </Link>
   );
 };
 

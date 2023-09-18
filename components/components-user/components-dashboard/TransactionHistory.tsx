@@ -96,84 +96,7 @@ interface TableData {
   money: number;
   tong: string;
 }
-
-const data1: TableData[] = [
-  {
-    id: 1,
-    username: "user1",
-    email: "user1@example.com",
-    amount: 100,
-    status: "Active",
-    money: 500,
-    tong: "alo alo",
-  },
-  {
-    id: 2,
-    username: "user2",
-    email: "user2@example.com",
-    amount: 200,
-    status: "Inactive",
-    money: 800,
-    tong: "alo alo",
-  },
-  {
-    id: 3,
-    username: "user3",
-    email: "user3@example.com",
-    amount: 300,
-    status: "Active",
-    money: 1200,
-    tong: "alo alo",
-  },
-  {
-    id: 4,
-    username: "user4",
-    email: "user4@example.com",
-    amount: 150,
-    status: "Active",
-    money: 700,
-    tong: "alo alo",
-  },
-  {
-    id: 5,
-    username: "user5",
-    email: "user5@example.com",
-    amount: 400,
-    status: "Inactive",
-    money: 1000,
-    tong: "alo alo",
-  },
-];
-
-const columnsToShowDesktop = Object.keys(data1[0]).length; // Hiển thị tất cả cột trên màn hình desktop
-const columnsToShowMobile = 3; // Hiển thị 3 cột trên màn hình điện thoại
 const TransactionHistory = () => {
-  const [startColumn, setStartColumn] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Chuyển sang chế độ mobile khi độ rộng màn hình nhỏ hơn hoặc bằng 768px
-    };
-
-    handleResize(); // Kiểm tra ban đầu
-    window.addEventListener("resize", handleResize); // Theo dõi sự kiện thay đổi kích thước màn hình
-    return () => {
-      window.removeEventListener("resize", handleResize); // Hủy đăng ký lắng nghe khi component bị hủy
-    };
-  }, []);
-
-  const showNextColumns = () => {
-    if (startColumn + columnsToShowMobile < columnsToShowDesktop) {
-      setStartColumn((prev) => prev + columnsToShowMobile);
-    }
-  };
-
-  const showPrevColumns = () => {
-    if (startColumn - columnsToShowMobile >= 0) {
-      setStartColumn((prev) => prev - columnsToShowMobile);
-    }
-  };
   return (
     <div>
       <div className="flex md:flex-row flex-col justify-between md:items-center items-start md:px-0 px-6 md:gap-0 gap-2">
@@ -190,7 +113,7 @@ const TransactionHistory = () => {
           </button>
         </div>
       </div>
-      <div className="mt-2">
+      <div className="mt-2 md:mb-0 mb-4 md:mx-0 mx-6">
         <Table headers={headers} data={data} />
       </div>
       {/* <div className="overflow-x-auto">

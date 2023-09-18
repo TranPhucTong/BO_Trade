@@ -4,7 +4,11 @@ import Logo from "../component-logo/Logo";
 import { AiOutlineControl } from "react-icons/ai";
 import { RiListUnordered } from "react-icons/ri";
 import { TbHomeMove } from "react-icons/tb";
-import { BsCurrencyDollar } from "react-icons/bs";
+import {
+  BsCurrencyDollar,
+  BsChevronLeft,
+  BsChevronRight,
+} from "react-icons/bs";
 import { TfiDashboard } from "react-icons/tfi";
 import { TbArrowAutofitDown } from "react-icons/tb";
 import { MdOutlineAnalytics } from "react-icons/md";
@@ -13,6 +17,12 @@ import { FiUsers, FiSettings } from "react-icons/fi";
 import { TbReplaceOff } from "react-icons/tb";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectIsSideBarOpen,
+  toggleSideBar,
+} from "@/reducers/slices/sideBarSlice";
+import { CiMenuFries } from "react-icons/ci";
 
 const SideBarAdmin = () => {
   const MenusTransaction = [
@@ -69,15 +79,41 @@ const SideBarAdmin = () => {
 
   const router = useRouter();
 
+  const isSideBarOpen = useSelector(selectIsSideBarOpen);
+  const dispatch = useDispatch();
+  const handleToggleSideBar = () => {
+    dispatch(toggleSideBar());
+  };
+
   return (
     <div className="flex">
       <div
-        className={` w-64 bg-white dark:bg-bgBoxDark
-      bg-dark-purple h-screen p-3 pt-8 relative duration-300 dark:border-r-2 dark:border-text_4`}
+        className={`${
+          isSideBarOpen ? "block md:w-64 w-screen" : "hidden"
+        } md:block
+         w-64 bg-white dark:bg-bgBoxDark
+      bg-dark-purple h-screen p-3 pt-8 dark:border-r-2 dark:border-text_4`}
       >
-        <div className="flex gap-x-4 items-center">
+        <div className="flex md:hidden justify-between items-center">
+          <div
+            onClick={handleToggleSideBar}
+            className="flex justify-center items-center gap-1"
+          >
+            <BsChevronLeft className="w-4 h-4" />
+            <p className="font-medium text-sm text-black dark:text-white">
+              Back
+            </p>
+          </div>
+          <p className="font-bold text-sm text-black dark:text-white mr-6">
+            Menu
+          </p>
+          <div></div>
+        </div>
+
+        <div className="md:flex hidden gap-x-4 items-center">
           <Logo />
         </div>
+
         <div className="pt-7">
           <p className="text-xs font-medium text-textGray">Dashboard</p>
           <ul className="mt-1">
@@ -86,11 +122,13 @@ const SideBarAdmin = () => {
                 router.pathname === "/admin/analytics" &&
                 "bg-primaryLight dark:bg-text_4 text-white"
               } rounded-xl w-full cursor-pointer hover:bg-light-white  items-center gap-x-4 
+               justify-between 
             `}
             >
               <Link
                 className="flex w-full justify-start items-center gap-4"
                 href="/admin/analytics"
+                onClick={handleToggleSideBar}
               >
                 <MdOutlineAnalytics className="w-[20px] h-[20px] font-bold" />
                 <span
@@ -99,6 +137,7 @@ const SideBarAdmin = () => {
                   Analytics
                 </span>
               </Link>
+              <BsChevronRight className="w-4 h-4 md:hidden block" />
             </li>
           </ul>
         </div>
@@ -111,12 +150,13 @@ const SideBarAdmin = () => {
                 className={`flex p-3 ${
                   router.pathname === Menu.link &&
                   "bg-primaryLight dark:bg-text_4 text-white"
-                } rounded-xl w-full cursor-pointer hover:bg-light-white  items-center gap-x-4 
+                } rounded-xl w-full cursor-pointer hover:bg-light-white justify-between items-center gap-x-4 
             `}
               >
                 <Link
                   className="flex w-full justify-start items-center gap-4"
                   href={Menu.link}
+                  onClick={handleToggleSideBar}
                 >
                   <Menu.icon className="w-[20px] h-[20px] font-bold" />
                   <span
@@ -125,6 +165,7 @@ const SideBarAdmin = () => {
                     {Menu.title}
                   </span>
                 </Link>
+                <BsChevronRight className="w-4 h-4 md:hidden block" />
               </li>
             ))}
           </ul>
@@ -140,12 +181,13 @@ const SideBarAdmin = () => {
                 className={`flex p-3 ${
                   router.pathname === Menu.link &&
                   "bg-primaryLight dark:bg-text_4 text-white"
-                } w-full rounded-xl  cursor-pointer hover:bg-light-white  items-center gap-x-4 
+                } w-full rounded-xl  cursor-pointer hover:bg-light-white justify-between items-center gap-x-4 
             `}
               >
                 <Link
                   className="flex w-full justify-start items-center gap-4"
                   href={Menu.link}
+                  onClick={handleToggleSideBar}
                 >
                   <Menu.icon className="w-[20px] h-[20px] font-bold" />
                   <span
@@ -154,6 +196,7 @@ const SideBarAdmin = () => {
                     {Menu.title}
                   </span>
                 </Link>
+                <BsChevronRight className="w-4 h-4 md:hidden block" />
               </li>
             ))}
           </ul>
@@ -167,12 +210,13 @@ const SideBarAdmin = () => {
                 className={`flex p-3 ${
                   router.pathname === Menu.link &&
                   "bg-primaryLight dark:bg-text_4 text-white"
-                } w-full rounded-xl cursor-pointer hover:bg-light-white  items-center gap-x-4 
+                } w-full rounded-xl cursor-pointer hover:bg-light-white justify-between items-center gap-x-4 
             `}
               >
                 <Link
                   className="flex w-full justify-start items-center gap-4"
                   href={Menu.link}
+                  onClick={handleToggleSideBar}
                 >
                   <Menu.icon className="w-[20px] h-[20px] font-bold" />
                   <span
@@ -181,6 +225,7 @@ const SideBarAdmin = () => {
                     {Menu.title}
                   </span>
                 </Link>
+                <BsChevronRight className="w-4 h-4 md:hidden block" />
               </li>
             ))}
           </ul>

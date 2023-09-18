@@ -80,3 +80,12 @@ code {
   color: rgba(198, 198, 198, 1);
   border: 1px solid rgba(47, 47, 47, 1);
 }
+
+#input-deposit {
+  padding: 22px 8px;
+}
+
+.dark #input-deposit {
+  background-color: #151818 !important;
+  color: rgba(198, 198, 198, 1);
+}

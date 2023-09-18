@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Input, Tooltip } from "@mantine/core";
 import { useId } from "@mantine/hooks";
 import InputAdmin from "@/components/components-admin/InputAdmin";
+import { BsChevronDown } from "react-icons/bs";
 
 const Settings = () => {
   const DataSettingWallet = [
@@ -133,9 +134,32 @@ const Settings = () => {
       value: "0.25",
     },
   ];
+  const [openWallet, setOpenWallet] = useState(false);
+  const [openSetting, setOpenSetting] = useState(false);
+  const [openCommission, setOpenCommission] = useState(false);
+  const [openVipCommission, setOpenVipCommission] = useState(false);
+
   return (
-    <div className="flex justify-between items-start gap-4">
-      <div className="flex-1 p-2 rounded-[10px] border border-text_2 shadow-xl bg-white dark:bg-bgBoxDark">
+    <div className="flex md:flex-row flex-col justify-between items-start gap-4 md:mx-0 mx-4 md:mb-0 mb-4">
+      <div
+        onClick={() => setOpenWallet(!openWallet)}
+        className="md:hidden bg-white w-full px-4 py-4 shadow-xl flex justify-between items-center border border-text_2 rounded-[10px]"
+      >
+        <p>Wallet</p>
+        <div
+          className={` ${
+            openWallet &&
+            "transform rotate-180 transition-all duration-200 ease-in-out"
+          }`}
+        >
+          <BsChevronDown />
+        </div>
+      </div>
+      <div
+        className={`md:flex-1 w-full p-2 rounded-[10px] border border-text_2 shadow-xl bg-white dark:bg-bgBoxDark
+      ${openWallet ? "block" : "hidden md:block"}
+      `}
+      >
         <p className="font-medium text-lg text-black dark:text-white">Wallet</p>
         <div className="flex flex-col gap-2 mt-4">
           {DataSettingWallet.map((item, index) => (
@@ -150,7 +174,25 @@ const Settings = () => {
           Save
         </Button>
       </div>
-      <div className="flex-1 p-2 rounded-[10px] border border-text_2 shadow-xl bg-white dark:bg-bgBoxDark">
+      <div
+        onClick={() => setOpenSetting(!openSetting)}
+        className="md:hidden bg-white w-full px-4 py-4 shadow-xl flex justify-between items-center border border-text_2 rounded-[10px]"
+      >
+        <p>Setting</p>
+        <div
+          className={` ${
+            openSetting &&
+            "transform rotate-180 transition-all duration-200 ease-in-out"
+          }`}
+        >
+          <BsChevronDown />
+        </div>
+      </div>
+      <div
+        className={`md:flex-1 w-full p-2 rounded-[10px] border border-text_2 shadow-xl bg-white dark:bg-bgBoxDark
+      ${openSetting ? "block" : "hidden md:block"}
+      `}
+      >
         <p className="font-medium text-lg text-black dark:text-white">
           Setting
         </p>
@@ -168,7 +210,25 @@ const Settings = () => {
           Save
         </Button>
       </div>
-      <div className="flex-1 p-2 rounded-[10px] border border-text_2 shadow-xl bg-white dark:bg-bgBoxDark">
+      <div
+        onClick={() => setOpenCommission(!openCommission)}
+        className="md:hidden bg-white w-full px-4 py-4 shadow-xl flex justify-between items-center border border-text_2 rounded-[10px]"
+      >
+        <p>Trade Commission</p>
+        <div
+          className={` ${
+            openCommission &&
+            "transform rotate-180 transition-all duration-200 ease-in-out"
+          }`}
+        >
+          <BsChevronDown />
+        </div>
+      </div>
+      <div
+        className={`md:flex-1 w-full p-2 rounded-[10px] border border-text_2 shadow-xl bg-white dark:bg-bgBoxDark
+      ${openCommission ? "block" : "hidden md:block"}
+      `}
+      >
         <p className="font-medium text-lg text-black dark:text-white">
           Trade Commission
         </p>
@@ -186,7 +246,25 @@ const Settings = () => {
           Save
         </Button>
       </div>
-      <div className="flex-1 p-2 rounded-[10px] border border-text_2 shadow-xl bg-white dark:bg-bgBoxDark">
+      <div
+        onClick={() => setOpenVipCommission(!openVipCommission)}
+        className="md:hidden bg-white w-full px-4 py-4 shadow-xl flex justify-between items-center border border-text_2 rounded-[10px]"
+      >
+        <p>Vip Commission</p>
+        <div
+          className={` ${
+            openVipCommission &&
+            "transform rotate-180 transition-all duration-200 ease-in-out"
+          }`}
+        >
+          <BsChevronDown />
+        </div>
+      </div>
+      <div
+        className={`md:flex-1 w-full p-2 rounded-[10px] border border-text_2 shadow-xl bg-white dark:bg-bgBoxDark
+      ${openVipCommission ? "block" : "hidden md:block"}
+      `}
+      >
         <p className="font-medium text-lg text-black dark:text-white">
           Vip Commission
         </p>

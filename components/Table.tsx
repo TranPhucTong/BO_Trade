@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BiShow } from "react-icons/bi";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import {
+  BsArrowLeft,
+  BsArrowRight,
+  BsChevronLeft,
+  BsChevronRight,
+  BsEye,
+} from "react-icons/bs";
 
 interface TableColumn {
   header: string;
@@ -17,6 +22,30 @@ const Table: React.FC<TableProps> = ({ headers, data }) => {
   const itemsPerPage: number = 5;
   const totalPages: number = Math.ceil(data.length / itemsPerPage);
 
+  const [startColumn, setStartColumn] = useState<number>(0);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const columnsToShowMobile = 3; // Số cột hiển thị trên màn hình điện thoại
+  const columnsToShowDesktop = isMobile ? columnsToShowMobile : headers.length;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Chuyển sang chế độ mobile khi độ rộng màn hình nhỏ hơn hoặc bằng 768px
+      setStartColumn((prev) => {
+        if (isMobile) {
+          return Math.max(0, prev); // Nếu đang ở chế độ mobile, không cho startColumn âm
+        } else {
+          return 0; // Nếu đang ở chế độ desktop, reset startColumn về 0
+        }
+      });
+    };
+
+    handleResize(); // Kiểm tra ban đầu
+    window.addEventListener("resize", handleResize); // Theo dõi sự kiện thay đổi kích thước màn hình
+    return () => {
+      window.removeEventListener("resize", handleResize); // Hủy đăng ký lắng nghe khi component bị hủy
+    };
+  }, [isMobile]);
+
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage);
   };
@@ -25,36 +54,79 @@ const Table: React.FC<TableProps> = ({ headers, data }) => {
   const endIndex: number = startIndex + itemsPerPage;
   const currentData: any[] = data.slice(startIndex, endIndex);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [data]);
+  const showNextColumns = () => {
+    if (startColumn + columnsToShowDesktop < headers.length) {
+      setStartColumn((prev) => prev + columnsToShowDesktop);
+    }
+  };
+
+  const showPrevColumns = () => {
+    if (startColumn - columnsToShowDesktop >= 0) {
+      setStartColumn((prev) => prev - columnsToShowDesktop);
+    }
+  };
 
   return (
     <div className="w-full bg-white dark:bg-[#151818] dark:border-text_4 rounded-xl border border-text_2 ">
       <table className="w-full border-collapse">
-        <thead className="rounded-t-lg border-b border-text_2 dark:border-text_4">
+        <thead className="rounded-t-lg border-b border-text_2 dark:border-text_4 md:px-0 px-2">
           <tr className="">
-            {headers.map((header, index) => (
-              <th
-                key={header.key}
-                className={`py-2 md:px-4 px-0 text-sm text-textGray dark:text-text_2 text-left font-medium `}
-              >
-                {header.header}
+            {headers
+              .slice(
+                startColumn,
+                startColumn +
+                  (isMobile ? columnsToShowMobile : columnsToShowDesktop)
+              )
+              .map((header, index) => (
+                <th
+                  key={header.key}
+                  className={`py-2 px-2 text-sm text-textGray dark:text-text_2 text-left font-medium `}
+                >
+                  {header.header}
+                </th>
+              ))}
+            {isMobile && (
+              <th>
+                <button
+                  onClick={showPrevColumns}
+                  className="p-1 bg-colorBgBoxMemberLight dark:bg-text_4 dark:text-white mr-2 rounded-full"
+                >
+                  <BsChevronLeft className="w-3 h-3" />
+                </button>
+                <button
+                  onClick={showNextColumns}
+                  className="p-1 bg-colorBgBoxMemberLight dark:bg-text_4 dark:text-white rounded-full"
+                >
+                  <BsChevronRight className="w-3 h-3" />
+                </button>
               </th>
-            ))}
+            )}
           </tr>
         </thead>
         <tbody>
           {currentData.map((item, index) => (
             <tr key={index} className="">
-              {headers.map((header) => (
-                <td
-                  key={header.key}
-                  className={`text-left py-2 md:px-4 px-0 text-sm text-textGray font-medium `}
-                >
-                  {item[header.key]}
+              {headers
+                .slice(
+                  startColumn,
+                  startColumn +
+                    (isMobile ? columnsToShowMobile : columnsToShowDesktop)
+                )
+                .map((header) => (
+                  <td
+                    key={header.key}
+                    className={`text-left py-2 px-2 text-sm text-textGray font-medium `}
+                  >
+                    {item[header.key]}
+                  </td>
+                ))}
+              {isMobile && (
+                <td className="text-center">
+                  <button className="px-2 py-1 rounded">
+                    <BsEye />
+                  </button>
                 </td>
-              ))}
+              )}
             </tr>
           ))}
         </tbody>
@@ -81,7 +153,7 @@ const Table: React.FC<TableProps> = ({ headers, data }) => {
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className={`border border-textGray rounded-lg p-2 ${
+            className={`border border-textGray rounded-lg md:p-2 p-1 ${
               currentPage === 1 ? "text-gray-400" : ""
             }`}
           >
@@ -90,7 +162,7 @@ const Table: React.FC<TableProps> = ({ headers, data }) => {
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className={`border border-textGray rounded-lg p-2 ${
+            className={`border border-textGray rounded-lg md:p-2 p-1 ${
               currentPage === totalPages ? "text-gray-400" : ""
             }`}
           >

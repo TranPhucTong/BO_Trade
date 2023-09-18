@@ -6,20 +6,20 @@ import { BsCheckCircleFill } from "react-icons/bs";
 
 export default function Profile() {
   return (
-    <div className="flex justify-center items-center gap-4 w-full">
-      <div className="bg-white dark:bg-[#151818] dark:border-text_4 border border-text_2 rounded-[10px] w-[800px] h-auto">
+    <div className="flex md:flex-row flex-col justify-center items-center gap-4 w-full md:px-0 px-4 md:my-0 my-4">
+      <div className="bg-white dark:bg-[#151818] dark:border-text_4 border border-text_2 rounded-[10px] md:w-[800px] w-full h-auto">
         <div className="px-4 py-2 border-b border-text_2 dark:border-text_4 flex justify-between items-center">
           <p className="text-sm text-black dark:text-text_2 font-medium">
             Edit Profile
           </p>
           <BiDotsVerticalRounded className="w-5 h-5 cursor-pointer text-textGray" />
         </div>
-        <div className="py-2 px-4 flex justify-center items-start gap-4">
-          <div className="w-[15%] mt-4">
+        <div className="py-2 px-4 flex md:flex-row flex-col justify-center items-start md:gap-4 gap-2">
+          <div className="md:w-[15%] w-full text-center mt-4">
             <UploadImage />
           </div>
 
-          <div className="w-[85%]">
+          <div className="md:w-[85%] w-full">
             <EditProfileForm />
           </div>
         </div>
@@ -37,10 +37,11 @@ export default function Profile() {
           </div>
           <div className="px-4 py-4">
             <p className="font-normal text-sm text-textGray">
-              To keep your assets safe, we need to verify your <br /> identity.
-              Please fill in the information correctly, once <br /> the identity
-              verification is completed, the information <br /> cannot be edited
-              anymore.
+              To keep your assets safe, we need to verify your{" "}
+              <br className="md:block hidden" /> identity. Please fill in the
+              information correctly, once <br className="md:block hidden" /> the
+              identity verification is completed, the information{" "}
+              <br className="md:block hidden" /> cannot be edited anymore.
             </p>
           </div>
         </div>
@@ -51,8 +52,8 @@ export default function Profile() {
             </p>
             <BiDotsVerticalRounded className="w-5 h-5 cursor-pointer text-textGray" />
           </div>
-          <div className="px-4 py-4 flex justify-between items-center">
-            <p className="font-normal text-sm text-textGray w-[218px]">
+          <div className="px-4 py-4 flex md:flex-row flex-col md:gap-0 gap-2 justify-between items-center">
+            <p className="font-normal text-sm text-textGray md:w-[218px] inline-block">
               Do you want to change your password?
               <span className="text-primaryLight dark:text-primary">
                 Move to the bottom to change.
